@@ -5,12 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <script src="https://unpkg.com/htmx.org@1.9.3"></script>
-    <script src="https://unpkg.com/htmx.org@1.4.1/dist/ext/client-side-templates.js"></script>
-    <script src="https://unpkg.com/mustache@latest"></script>
-    <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
-    <title>HTMX Example</title>
+    <title>HTMX Example (not)</title>
 </head>
 <body>
 
@@ -28,19 +23,23 @@
             5. The site will be online via https://<GITHUB_USERNAME>.github.io/<REPO>
  -->
 <div hx-ext="client-side-templates">
-    <h2>Meme Generator</h2>
-    <div>
-        <div style="">
-            <button hx-get="https://server.bulbt.com/nate/memes-api/random-meme"
-                    mustache-template="conversionTemplate"
-                    hx-target="#greetingResponseTarget2">
-                Get random meme!!
-            </button>
-        </div>
-    </div>
-    <div id="greetingResponseTarget2">
-        Here will be the response ...
-    </div>
+    <h2>Cat Generator</h2>
+
+
+<body>
+<p>Here will be the response ... </p>
+    <button onclick="displayIframe()">Get random cat!!</button>
+  <div id="iframeDisplay"></div>  
+
+<script>
+    function displayIframe() {
+        document.getElementById("iframeDisplay").innerHTML = "<iframe src=\"https://cataas.com/cat\" height=\"200\" width=\"300\" ></iframe>";
+
+    }
+</script>
+</body>
+
+
 
     <template id="conversionTemplate">
         <h2 style="color:green">{{title}} ( <span>🌟 {{upVotes}}</span> ) by <strong style="color: saddlebrown">{{creator}}</strong> </h2>
